@@ -7,16 +7,30 @@ colour name.
 
 # Build the image
 ```shell script
-docker build -t my-golang-app .
+cd ${GOPATH}/src/github.com/ksanta/colouredpage
+docker login -u ksanta
+docker build -t ksanta/colouredpage .
 ```
 
 # Run a container
 This runs server with default green background
 ```shell script
-docker run -it --rm --name my-running-app -p 8080:8080 my-golang-app
+docker run -it --rm --name my-colouredpage -p 8080:8080 ksanta/colouredpage
 ```
 
 This runs server with specified blue background
 ```shell script
-docker run -it --rm --name my-running-app -p 8080:8080 my-golang-app app blue
+docker run -it --rm --name my-colouredpage -p 8080:8080 ksanta/colouredpage app blue
+```
+
+# Publish the image to Docker Hub
+```shell script
+docker push ksanta/colouredpage
+```
+
+# Running on Minikube
+```shell script
+kubectl run colouredpage --image=ksanta/colouredpage
+kubectl expose deployment colouredpage --type=LoadBalancer --port=8080
+minikube service colouredpage
 ```
