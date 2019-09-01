@@ -8,7 +8,6 @@ colour name.
 # Build the image
 ```shell script
 cd ${GOPATH}/src/github.com/ksanta/colouredpage
-docker login -u ksanta
 docker build -t ksanta/colouredpage .
 ```
 
@@ -20,11 +19,12 @@ docker run -it --rm --name my-colouredpage -p 8080:8080 ksanta/colouredpage
 
 This runs server with specified blue background
 ```shell script
-docker run -it --rm --name my-colouredpage -p 8080:8080 ksanta/colouredpage app blue
+docker run -it --rm --name temp-colouredpage -p 8080:8080 ksanta/colouredpage app blue
 ```
 
 # Publish the image to Docker Hub
 ```shell script
+docker login -u ksanta
 docker push ksanta/colouredpage
 ```
 
