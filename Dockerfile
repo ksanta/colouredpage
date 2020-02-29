@@ -35,4 +35,5 @@ COPY --from=builder /go/src/app/page.html .
 EXPOSE 8080
 
 # Default command if none is given. Override to choose different colours.
-CMD ["app", "green"]
+ENTRYPOINT ["app"]
+CMD ["green"]

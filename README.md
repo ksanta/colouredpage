@@ -19,7 +19,7 @@ docker run -it --rm --name my-colouredpage -p 8080:8080 ksanta/colouredpage
 
 This runs server with specified blue background
 ```shell script
-docker run -it --rm --name temp-colouredpage -p 8080:8080 ksanta/colouredpage app blue
+docker run -it --rm --name my-colouredpage -p 8080:8080 ksanta/colouredpage blue
 ```
 
 # Publish the image to Docker Hub
